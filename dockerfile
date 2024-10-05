@@ -22,7 +22,6 @@ RUN apt-get update && \
 # Copy and install Python dependencies
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
-
 # Copy project files
 COPY . /app/
 
@@ -37,7 +36,7 @@ RUN python manage.py collectstatic --no-input
 # Replace 'admin', 'admin@example.com', and 'adminpass' with your desired superuser details
 RUN echo "from django.contrib.auth import get_user_model; \
 User = get_user_model(); \
-User.objects.create_superuser('new1_admin', 'admin@example.com', 'adminpass')" | python manage.py shell
+User.objects.create_superuser('raju123', 'raju123@example.com', 'adminpass')" | python manage.py shell
 
 # Run the Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:9000"]
